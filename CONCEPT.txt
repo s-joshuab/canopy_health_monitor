@@ -1,0 +1,23 @@
+CANOPY HEALTH MONITOR
+Simple Concept
+
+THE IDEA
+Canopy Health Monitor is a dashboard that helps people see the condition of forests and tree-covered areas in Region 1. It brings maps, warnings, satellite images, and data summaries together in one place.
+
+THE GOAL
+Help PENRO R1 staff notice places that may need a closer look. The app does not replace visiting and checking a location in person. It is a guide for planning and deciding where to start.
+
+PRIMARY CLIENT AND USERS
+PENRO R1 is the intended client. The main users are its environmental and field staff, who can use the dashboard to track forest conditions and plan where to follow up.
+
+COVERAGE
+Region 1 only: Ilocos Norte, Ilocos Sur, La Union, and Pangasinan.
+
+HOW IT HELPS
+- The dashboard shows summary numbers and changes in the condition of monitored areas.
+- The map makes it easier to compare provinces.
+- Warnings point out places that may have changed and should be checked.
+- Satellite image details and reports are kept together in one place.
+
+CURRENT STATUS
+The app is still a prototype. Most numbers, warnings, and records are sample data and are not connected to a live monitoring system. The image shown is a real NASA GIBS Terra/MODIS reference image of Pangasinan, but it is not the same Sentinel-2B image described by the sample record beside it. Official data and in-person checks must be connected and verified before the app is used to make real decisions.

@@ -1,0 +1,126 @@
+CANOPY HEALTH MONITOR — SIMPLE SYSTEM FLOW
+
+Ano ang system?
+Ang Canopy Health Monitor ay prototype dashboard para makita ang kalagayan ng
+canopy at vegetation health sa Region 1 (Ilocos Region). Pinagsasama nito ang
+summary, mapa, alerts, satellite scene information, at reports para makatulong
+sa pag-review at pagplano ng field checking.
+
+Paalala: Prototype pa ito. Karamihan sa numbers, alerts, scenes, at records ay
+sample/mock data at hindi pa nakakonekta sa live monitoring system. Gamitin
+bilang gabay lamang; kailangan pa rin ng field validation bago gumawa ng
+opisyal na desisyon.
+
+Paano gumagana ang navigation?
+1. Nasa sidebar ang mga pangunahing panel, naka-grupo bilang Monitoring, Data,
+   at Configuration.
+2. Kapag pumili ng panel, nagbabago ang page sa main area; nananatili ang
+   sidebar at topbar.
+3. May ilang shortcut papunta sa ibang panel. Halimbawa, ang dashboard map ay
+   puwedeng magbukas ng Canopy Maps sa napiling province, at ang alert ay
+   puwedeng i-review sa Health Alerts.
+4. Sa maliit na screen, binubuksan ang sidebar mula sa topbar at kusang
+   nagsasara kapag pumili ng page. Sa desktop, puwedeng i-collapse ang sidebar.
+
+MGA BAHAGI NG SIDEBAR
+
+Project selector — Forest Monitor / Region 1
+Ipinapakita kung aling workspace/region ang kasalukuyang tinitingnan. May
+Region 1 na napipili at Region 2 na nakalagay na "Soon". Ang "Manage regions"
+ay nagdadala sa Settings. Sa kasalukuyang prototype, hindi pa tunay na
+nagpapalit ng dataset o workspace ang selector.
+
+MONITORING
+
+1. Dashboard
+Ito ang panimulang buod ng rehiyon. Makikita rito ang pangunahing indicators,
+trend ng canopy at at-risk area, vegetation health breakdown, regional map,
+recent alerts, province comparison, at satellite activity.
+
+Karaniwang flow:
+- Tingnan muna ang regional summary at trend.
+- Pumili ng province sa mapa o province table para magbukas ng Canopy Maps sa
+  province na iyon.
+- Buksan ang Health Alerts para sa listahan ng mga kailangang i-review.
+- Buksan ang Satellite Data para tingnan ang acquisition at processing info.
+- Pumunta sa Reports para gumawa ng buod/export.
+
+2. Canopy Maps
+Ito ang mas detalyadong geographic view. Puwedeng pumili sa Canopy Density o
+NDVI Health, mag-filter ng province, at ipakita/itago ang alerts, anomaly
+hotspots, at province labels. Kapag pumili ng province, lalabas ang summary
+gaya ng dense canopy, at-risk area, mean NDVI, at open alerts.
+
+Mula rito, puwedeng pumunta sa alerts ng napiling lugar, mag-queue ng province
+report, mag-request ng satellite capture, o mag-queue ng GeoTIFF export.
+Prototype/mock ang map layers at export actions.
+
+3. Health Alerts
+Dito sinusuri at tina-triage ang mga vegetation-health anomaly. Puwedeng
+mag-filter ayon sa status, severity, province, at search text. Pagbukas ng
+alert, makikita ang lokasyon, affected area, confidence, NDVI trend, detection
+details, at recommended actions.
+
+Daloy ng alert:
+- Open: bagong alert na dapat suriin.
+- Acknowledge: minamarkahang na-review/inaasikaso.
+- Resolve: isinasara matapos ang follow-up.
+- Maaari ring i-assign sa sarili o buksan ang lokasyon sa mapa.
+
+Ang mga status at assignment sa prototype ay nasa page state lamang at hindi
+pa permanenteng nai-save sa backend.
+
+DATA
+
+4. Satellite Data
+Ipinapakita ang latest acquisition, satellite scenes catalog, cloud cover,
+coverage, mean NDVI, status ng processing jobs, at available imagery sources.
+Puwedeng mag-search/filter ng scenes, tingnan ang status, at magbukas ng scene
+sa Canopy Maps.
+
+May mga action para mag-refresh ng catalog, mag-request ng capture, mag-download
+ng scene, at mag-configure ng sources. Sa prototype, simulated ang refresh,
+download, capture request, at processing status.
+
+5. Reports
+Dito gumagawa at sumusubaybay ng report. Puwedeng magsimula sa template o
+"New report", pumili ng report type, scope, period, format, at ilang options.
+Pag-generate, lalabas muna itong "Generating" at pagkatapos ay "Ready" sa
+prototype; ang ready report ay puwedeng i-download bilang simulated action.
+
+May status filter para sa All, Ready, Generating, at Failed, at may Schedule
+action na nagpapakita ng sample schedule. Hindi pa aktuwal na gumagawa o
+nagpapadala ng report ang prototype.
+
+CONFIGURATION
+
+6. Settings
+Dito nakaayos ang mga workspace at monitoring configuration sa limang tab:
+
+- Workspace: pangalan/region, timezone, units, defaults, at model settings.
+- Monitoring: detection thresholds, alert sensitivity, at alert behavior.
+- Data sources: satellite/source status at sync/processing schedule.
+- Notifications: anong alerts ang ipapadala at saang delivery channels.
+- Team: listahan ng members at role/access settings.
+
+Ang "Save" at ibang controls ay prototype interactions lang; wala pang
+permanenteng backend storage. Ang "Manage regions", "Alert settings", at
+"Configure sources" mula sa ibang panel ay nagdadala rin dito.
+
+Karagdagang sidebar controls
+- Status indicator: ipinapakita ang sample na system status at last sync.
+- Collapse/expand: nagpapaliit o nagpapalawak sa sidebar sa desktop.
+- Sa topbar, may command palette shortcut na Ctrl+K (o Cmd+K sa Mac) para
+  mabilis maghanap ng page o ilang quick action.
+
+BUOD NG END-TO-END FLOW
+Dashboard (makita ang buod)
+  -> Canopy Maps (suriin ang lokasyon/layer)
+  -> Health Alerts (i-review at i-update ang alert status)
+  -> Satellite Data (tingnan ang source at scene information)
+  -> Reports (ihanda ang summary)
+  -> Settings (i-configure ang workspace at monitoring preferences)
+
+Ang flow sa itaas ay naglalarawan ng kasalukuyang prototype. Ang totoong
+operational flow ay mangangailangan pa ng verified satellite data, backend,
+permanenteng storage, at validation ng field staff.

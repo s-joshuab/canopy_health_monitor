@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-[13px] text-ink antialiased;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  * {
+    border-color: #d9e3da;
+  }
+
+  ::selection {
+    background: rgba(62, 207, 142, 0.24);
+    color: #17251c;
+  }
+
+  :focus-visible {
+    outline: 1px solid rgba(62, 207, 142, 0.8);
+    outline-offset: 2px;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input[type='range'] {
+    accent-color: #3ecf8e;
+  }
+
+  input[type='checkbox'] {
+    accent-color: #3ecf8e;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #c5d0c7 transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #c5d0c7;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    border-radius: 8px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: #aebbb1;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+}
+
+@layer components {
+  .surface {
+    @apply rounded-lg border border-line bg-panel;
+  }
+
+  .input {
+    @apply h-8 w-full rounded-md border border-line bg-canvas px-2.5 text-[12px] text-ink outline-none transition placeholder:text-subtle focus:border-brand/50 focus:ring-1 focus:ring-brand/30;
+  }
+
+  .icon-button {
+    @apply inline-flex h-8 w-8 items-center justify-center rounded-md text-muted transition hover:bg-elevated hover:text-ink;
+  }
+
+  .kbd {
+    @apply inline-flex h-5 items-center rounded border border-line bg-elevated px-1.5 font-mono text-[10px] text-subtle;
+  }
+
+  .nav-item {
+    @apply flex h-8 items-center gap-2.5 rounded-md px-2 text-[13px] text-muted transition hover:bg-elevated hover:text-ink;
+  }
+
+  .nav-item-active {
+    @apply bg-brand/10 text-brand hover:bg-brand/10 hover:text-brand;
+  }
+
+  .table-th {
+    @apply border-b border-line px-4 py-2.5 text-left text-[11px] font-medium uppercase tracking-[0.06em] text-subtle;
+  }
+
+  .table-td {
+    @apply px-4 py-3 text-[12px] text-muted;
+  }
+
+  .skeleton {
+    @apply relative overflow-hidden rounded-md bg-elevated;
+  }
+
+  .skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(23, 37, 28, 0.045),
+      transparent
+    );
+    animation: shimmer 1.8s infinite;
+  }
+
+  .focus-ring {
+    @apply focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30;
+  }
+
+  .range {
+    @apply h-1.5 w-full cursor-pointer appearance-none rounded-full bg-elevated;
+  }
+
+  .range::-webkit-slider-thumb {
+    appearance: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 9999px;
+    background: #3ecf8e;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 1px rgba(62, 207, 142, 0.5);
+  }
+}
+
+.leaflet-container {
+  background: #edf1ef;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+}
+
+.leaflet-container .leaflet-interactive {
+  transition: fill-opacity 150ms ease, stroke-opacity 150ms ease;
+}
+
+.leaflet-control-zoom {
+  border: 1px solid #d9e3da !important;
+  border-radius: 6px !important;
+  overflow: hidden;
+  box-shadow: none !important;
+}
+
+.leaflet-control-zoom a {
+  width: 28px !important;
+  height: 28px !important;
+  line-height: 26px !important;
+  background: #ffffff !important;
+  color: #526258 !important;
+  border-bottom: 1px solid #d9e3da !important;
+}
+
+.leaflet-control-zoom a:last-child {
+  border-bottom: none !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #edf2ed !important;
+  color: #17251c !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.92) !important;
+  color: #526258 !important;
+  border-top: 1px solid #d9e3da;
+  border-left: 1px solid #d9e3da;
+  padding: 1px 5px !important;
+  font-size: 9px !important;
+}
+
+.leaflet-control-attribution a {
+  color: #18834f !important;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #ffffff !important;
+  color: #17251c !important;
+  border: 1px solid #d9e3da;
+  box-shadow: 0 8px 24px rgba(23, 37, 28, 0.16) !important;
+  border-radius: 6px !important;
+}
+
+.leaflet-popup-content {
+  margin: 10px 12px !important;
+  line-height: 1.5 !important;
+}
+
+.leaflet-popup-close-button {
+  color: #748278 !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: #17251c !important;
+}
+
+.map-label {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.map-label::before {
+  display: none !important;
+}
+
+.province-map-label {
+  min-width: 74px;
+  padding: 3px 6px 4px;
+  border: 1px solid rgba(67, 130, 82, 0.42);
+  border-radius: 3px;
+  background: rgba(238, 246, 239, 0.94);
+  box-shadow: 0 1px 4px rgba(23, 37, 28, 0.08);
+  text-align: center;
+}
+
+.province-map-label-name {
+  color: #4f6255;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 12px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.province-map-label-value {
+  margin-top: 1px;
+  color: #7a887e;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  line-height: 10px;
+}
+
+.recharts-surface:focus {
+  outline: none;
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: #748278;
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.recharts-legend-item-text {
+  color: #526258 !important;
+}
+
+.recharts-default-tooltip {
+  background: #ffffff !important;
+  border: 1px solid #d9e3da !important;
+  border-radius: 6px !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #748278;
+}
